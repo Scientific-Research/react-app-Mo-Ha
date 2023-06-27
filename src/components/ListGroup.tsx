@@ -1,6 +1,18 @@
+import { useState } from 'react';
+
 const ListGroup = () => {
 	const items = ['New York', 'San Francisco', 'Tokyo', 'London', 'Paris'];
+	// let selectedItem = 0;
 
+	// const arr = useState(-1); -1: means nothing was selected!
+	// arr[0]; variable (selectedIndex)
+	// arr[1]; updater function
+
+	// Oder Destructuring
+	const [selectedItem, setSelectedItem] = useState(-1);
+
+	// an example for name as state variable
+	// const [name, setName] = useState('');
 	//const items: [] = []; // ein leeres Array
 
 	// if (items.length === 0) {
@@ -15,12 +27,18 @@ const ListGroup = () => {
 	const handleGroupListItemClick = (
 		city: string,
 		i: number,
-		e: React.MouseEvent<HTMLLIElement, MouseEvent>
+		e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+		selectedItem1: number
 	) => {
 		// console.log(city, i, e.clientX, e.clientY);
 		console.log(
-			`Name of City: ${city}, index of city: ${i}, X location: ${e.clientX}, Y location: ${e.clientY}`
+			`Name of City: ${city}, index of city: ${i}, X location: ${e.clientX}, Y location: ${e.clientY}, Selected Number: ${selectedItem}`
 		);
+		// selectedItem1++;
+		// setSelectedItem(selectedItem1);
+		// selectedItem1 = i;
+		setSelectedItem(i);
+		console.log(selectedItem, i);
 	};
 
 	return (
@@ -30,9 +48,16 @@ const ListGroup = () => {
 			<ul className="list-group">
 				{items.map((city, i) => (
 					<li
-						className="list-group-item"
+						// className="list-group-item"
+						className={
+							selectedItem === i
+								? 'list-group-item active'
+								: 'list-group-item'
+						}
 						key={i}
-						onClick={(e) => handleGroupListItemClick(city, i, e)}
+						onClick={(e) =>
+							handleGroupListItemClick(city, i, e, selectedItem)
+						}
 					>
 						{city}
 					</li>
