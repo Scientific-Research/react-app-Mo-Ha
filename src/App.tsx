@@ -1,11 +1,13 @@
-import Message from './Message';
+// import Message from './Message';
+import ListGroup from './components/ListGroup';
 
 const App = () => {
 	return (
 		<p>
-			<Message />
+			{/* <Message /> */}
+			<ListGroup />
 		</p>
 	);
-};
+}; 
 
 export default App;
