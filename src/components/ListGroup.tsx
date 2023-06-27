@@ -12,8 +12,15 @@ const ListGroup = () => {
 	// 	);
 	// }
 
-	const handleGroupListItem = (city: any) => {
-		console.log(city);
+	const handleGroupListItemClick = (
+		city: string,
+		i: number,
+		e: React.MouseEvent<HTMLLIElement, MouseEvent>
+	) => {
+		// console.log(city, i, e.clientX, e.clientY);
+		console.log(
+			`Name of City: ${city}, index of city: ${i}, X location: ${e.clientX}, Y location: ${e.clientY}`
+		);
 	};
 
 	return (
@@ -25,7 +32,7 @@ const ListGroup = () => {
 					<li
 						className="list-group-item"
 						key={i}
-						onClick={() => handleGroupListItem(city)}
+						onClick={(e) => handleGroupListItemClick(city, i, e)}
 					>
 						{city}
 					</li>
