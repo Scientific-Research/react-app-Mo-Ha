@@ -27,8 +27,7 @@ const ListGroup = () => {
 	const handleGroupListItemClick = (
 		city: string,
 		i: number,
-		e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-		selectedItem1: number
+		e: React.MouseEvent<HTMLLIElement, MouseEvent>
 	) => {
 		// console.log(city, i, e.clientX, e.clientY);
 		console.log(
@@ -55,9 +54,7 @@ const ListGroup = () => {
 								: 'list-group-item'
 						}
 						key={i}
-						onClick={(e) =>
-							handleGroupListItemClick(city, i, e, selectedItem)
-						}
+						onClick={(e) => handleGroupListItemClick(city, i, e)}
 					>
 						{city}
 					</li>

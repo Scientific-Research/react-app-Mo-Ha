@@ -6,6 +6,7 @@ const App = () => {
 		<p>
 			{/* <Message /> */}
 			<ListGroup />
+			<ListGroup />
 		</p>
 	);
 }; 
