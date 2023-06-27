@@ -1,5 +1,10 @@
 const ListGroup = () => {
-	const items = ['New York', 'San Francisco', 'Tokyo', 'London', 'Paris'];
+	// const items = ['New York', 'San Francisco', 'Tokyo', 'London', 'Paris'];
+	const items: [] = []; // ein leeres Array
+
+	if (items.length === 0) {
+		return <h1>No item found!</h1>;
+	}
 	return (
 		<>
 			<h1>List</h1>
