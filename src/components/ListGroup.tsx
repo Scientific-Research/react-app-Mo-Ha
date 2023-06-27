@@ -3,9 +3,11 @@ import { useState } from 'react';
 interface IProps {
 	items: string[];
 	heading: string;
+	// (item: string) => void
+	onSelectItem: (city: string) => void;
 }
 
-const ListGroup = ({ items, heading }: IProps) => {
+const ListGroup = ({ items, heading, onSelectItem }: IProps) => {
 	// let selectedItem = 0;
 
 	// const arr = useState(-1); -1: means nothing was selected!
@@ -29,19 +31,19 @@ const ListGroup = ({ items, heading }: IProps) => {
 	// }
 
 	const handleGroupListItemClick = (
-		city: string,
-		i: number,
-		e: React.MouseEvent<HTMLLIElement, MouseEvent>
+		// city: string,
+		i: number
+		// e: React.MouseEvent<HTMLLIElement, MouseEvent>
 	) => {
 		// console.log(city, i, e.clientX, e.clientY);
-		console.log(
-			`Name of City: ${city}, index of city: ${i}, X location: ${e.clientX}, Y location: ${e.clientY}, Selected Number: ${selectedItem}`
-		);
+		// console.log(
+		// 	`Name of City: ${city}, index of city: ${i}, X location: ${e.clientX}, Y location: ${e.clientY}, Selected Number: ${selectedItem}`
+		// );
 		// selectedItem1++;
 		// setSelectedItem(selectedItem1);
 		// selectedItem1 = i;
 		setSelectedItem(i);
-		console.log(selectedItem, i);
+		// console.log(selectedItem, i);
 	};
 
 	return (
@@ -58,7 +60,10 @@ const ListGroup = ({ items, heading }: IProps) => {
 								: 'list-group-item'
 						}
 						key={i}
-						onClick={(e) => handleGroupListItemClick(city, i, e)}
+						onClick={() => {
+							handleGroupListItemClick(i);
+							onSelectItem(city);
+						}}
 					>
 						{city}
 					</li>
