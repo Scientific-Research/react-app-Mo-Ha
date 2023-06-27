@@ -1,7 +1,11 @@
 import { useState } from 'react';
 
-const ListGroup = () => {
-	const items = ['New York', 'San Francisco', 'Tokyo', 'London', 'Paris'];
+interface IProps {
+	items: string[];
+	heading: string;
+}
+
+const ListGroup = ({ items, heading }: IProps) => {
 	// let selectedItem = 0;
 
 	// const arr = useState(-1); -1: means nothing was selected!
@@ -42,10 +46,10 @@ const ListGroup = () => {
 
 	return (
 		<>
-			<h1>List</h1>
+			<h1>{heading}</h1>
 			{items.length === 0 && <h1>No item found!</h1>}
 			<ul className="list-group">
-				{items.map((city, i) => (
+				{items.map((city: string, i: number) => (
 					<li
 						// className="list-group-item"
 						className={
