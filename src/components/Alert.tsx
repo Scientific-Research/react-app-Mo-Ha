@@ -1,17 +1,10 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 
 interface IProps {
-	// text: string;
-	// children: string;
 	children: ReactNode;
 	onClose: () => void;
 }
-// const [close, setClose] = useState(false);
 
-// const handleVisibilityClick = () => {
-// 	console.log('clicked!');
-// 	// setClose(true);
-// };
 const Alert = ({ children, onClose }: IProps) => {
 	return (
 		<div className="alert alert-primary alert-dismissible">
