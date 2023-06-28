@@ -1,25 +1,34 @@
 // import Message from './Message';
 import { useState } from 'react';
-import Alert from './components/Alert';
-import Button from './components/button';
+// import Alert from './components/Alert';
+// import Button from './components/button';
+import ListGroup from './components/ListGroup/ListGroup';
 
 const App = () => {
-	const [alertVisibility, setAlertVisibility] = useState(false);
-	const handleClick = () => {
-		setAlertVisibility(!alertVisibility);
-		// console.log('Clicked!');
-	};
+	const items = ['New York', 'Los Angeles', 'San Francisco'];
+	// const [alertVisibility, setAlertVisibility] = useState(false);
+	// const handleClick = () => {
+	// 	setAlertVisibility(!alertVisibility);
+	// 	// console.log('Clicked!');
+	// };
 	return (
-		<>
-			{alertVisibility && (
-				<Alert onClose={() => setAlertVisibility(false)}>
-					My alert!
-				</Alert>
-			)}
-			<div>
-				<Button onClick={() => handleClick()}>My Button</Button>
-			</div>
-		</>
+		<div>
+			<ListGroup
+				heading="Miami"
+				items={items}
+				onSelectItem={() => onclick}
+			></ListGroup>
+		</div>
+		// <>
+		// 	{alertVisibility && (
+		// 		<Alert onClose={() => setAlertVisibility(false)}>
+		// 			My alert!
+		// 		</Alert>
+		// 	)}
+		// 	<div>
+		// 		<Button onClick={() => handleClick()}>My Button</Button>
+		// 	</div>
+		// </>
 	);
 };
 
