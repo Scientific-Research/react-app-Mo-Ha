@@ -11,6 +11,6 @@ const button = ({ children, onClick, Color = 'primary' }: IProps) => {
 			{children}
 		</button>
 	);
-};
+}; 
 
 export default button;
