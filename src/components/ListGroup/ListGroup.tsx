@@ -1,5 +1,16 @@
 import { useState } from 'react';
-import styles from './ListGroup.module.css';
+// import styles from './ListGroup.module.css';
+import './ListGroup.css';
+import styled from 'styled-components';
+
+const List = styled.ul`
+	list-style: none;
+	padding: 0;
+`;
+
+const ListItem = styled.li`  
+	padding: 5px 0;
+`;
 
 interface IProps {
 	items: string[];
@@ -8,7 +19,7 @@ interface IProps {
 }
 
 const ListGroup = ({ items, heading, onSelectItem }: IProps) => {
-	const [selectedItem, setSelectedItem] = useState(-1);
+	const [selectedItem, setSelectedItem] = useState(0);
 
 	const handleGroupListItemClick = (i: number) => {
 		setSelectedItem(i);
@@ -18,14 +29,17 @@ const ListGroup = ({ items, heading, onSelectItem }: IProps) => {
 		<>
 			<h1>{heading}</h1>
 			{items.length === 0 && <h1>No item found!</h1>}
-			<ul className={[styles.listGroup, styles.container].join(' ')}>
+			{/* <ul className={[styles.listGroup, styles.container].join(' ')}> */}
+			{/* <ul className="list-group"> */}
+			<List>
 				{items.map((city: string, i: number) => (
-					<li
-						className={
-							selectedItem === i
-								? 'list-group-item active'
-								: 'list-group-item'
-						}
+					// <li
+					<ListItem
+						// className={
+						// 	selectedItem === i
+						// 		? 'list-group-item active'
+						// 		: 'list-group-item'
+						// }
 						key={i}
 						onClick={() => {
 							handleGroupListItemClick(i);
@@ -33,9 +47,10 @@ const ListGroup = ({ items, heading, onSelectItem }: IProps) => {
 						}}
 					>
 						{city}
-					</li>
+						{/* </li> */}
+					</ListItem>
 				))}
-			</ul>
+			</List>
 		</>
 	);
 };
