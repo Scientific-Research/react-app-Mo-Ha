@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './ListGroup.css';
+import styles from './ListGroup.module.css';
 
 interface IProps {
 	items: string[];
@@ -18,7 +18,7 @@ const ListGroup = ({ items, heading, onSelectItem }: IProps) => {
 		<>
 			<h1>{heading}</h1>
 			{items.length === 0 && <h1>No item found!</h1>}
-			<ul className="list-group">
+			<ul className={[styles.listGroup, styles.container].join(' ')}>
 				{items.map((city: string, i: number) => (
 					<li
 						className={
