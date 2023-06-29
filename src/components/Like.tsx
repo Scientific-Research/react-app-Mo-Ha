@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
-const Like = () => {
+interface IProps {
+	onclick: () => void;
+}
+
+const Like = ({ onclick }: IProps) => {
 	const [changeColor, setChangeColor] = useState(false);
 
 	const handleChangeColor = () => {
 		setChangeColor(!changeColor);
-		console.log('clicked!');
+		//Console.log("Clicked!");
+		//ODER with Props => onclick();
+		onclick();
 	};
 
 	if (changeColor) {
@@ -14,11 +20,11 @@ const Like = () => {
 			<AiFillHeart
 				color="#ff6b81"
 				size={40}
-				onClick={() => handleChangeColor()}
+				onClick={handleChangeColor}
 			/>
 		);
 	} else {
-		return <AiOutlineHeart size={40} onClick={() => handleChangeColor()} />;
+		return <AiOutlineHeart size={40} onClick={handleChangeColor} />;
 	}
 };
 

@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import Like from './components/Like';
 
 const App = () => {
 	return (
 		<div>
-			<Like></Like>
+			<Like onclick={() => console.log('Clicked!')}></Like>
 		</div>
 	);
 };
