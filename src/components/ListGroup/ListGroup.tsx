@@ -3,13 +3,17 @@ import { useState } from 'react';
 import './ListGroup.css';
 import styled from 'styled-components';
 
+interface IListItemProps {
+	active: boolean;
+}
 const List = styled.ul`
 	list-style: none;
 	padding: 0;
 `;
 
-const ListItem = styled.li`  
+const ListItem = styled.li<IListItemProps>`
 	padding: 5px 0;
+	background: ${(props) => (props.active ? 'blue' : 'none')};
 `;
 
 interface IProps {
@@ -40,6 +44,7 @@ const ListGroup = ({ items, heading, onSelectItem }: IProps) => {
 						// 		? 'list-group-item active'
 						// 		: 'list-group-item'
 						// }
+						active={i === selectedItem}
 						key={i}
 						onClick={() => {
 							handleGroupListItemClick(i);
