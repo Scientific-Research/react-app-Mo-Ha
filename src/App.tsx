@@ -6,9 +6,10 @@ import ListGroup from './components/ListGroup/ListGroup';
 // import './components/ListGroup/ListGroup.module.css';
 // import './components/ListGroup/ListGroup.css';
 // import './App.css';
+import { BsFillCalendarFill } from 'react-icons/bs';
 
 const App = () => {
-	const items = ['New York', 'Los Angeles', 'San Francisco'];
+	// const items = ['New York', 'Los Angeles', 'San Francisco'];
 	// const [alertVisibility, setAlertVisibility] = useState(false);
 	// const handleClick = () => {
 	// 	setAlertVisibility(!alertVisibility);
@@ -16,11 +17,12 @@ const App = () => {
 	// };
 	return (
 		<div>
-			<ListGroup
+			{/* <ListGroup
 				heading="Miami"
 				items={items}
 				onSelectItem={() => onclick}
-			></ListGroup>
+			></ListGroup> */}
+			<BsFillCalendarFill color="red" size="40" />
 		</div>
 		// <>
 		// 	{alertVisibility && (
