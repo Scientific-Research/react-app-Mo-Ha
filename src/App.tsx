@@ -18,7 +18,45 @@ const App = () => {
 		toppings: ['Mushroom'],
 	});
 
+	const [cart, setCart] = useState({
+		discount: 0.1,
+		items: [
+			{ id: 1, title: 'Product 1', quantity: 1 },
+			{ id: 2, title: 'Product 2', quantity: 1 },
+		],
+	});
+
 	const handleClick = () => {
+		// Ex 3 Solution
+		setCart({
+			...cart,
+			items: [
+				...cart.items.map((item) =>
+					item.id === 1
+						? { ...item, quantity: item.quantity + 1 }
+						: item
+				),
+			],
+		});
+		console.log(cart.items);
+
+		// Ex 3 Solution
+		// setCart({
+		// 	...cart,
+		// 	items: cart.items.map((item) =>
+		// 		item.id == 1 ? { ...item, quantity: item.quantity + 1 } : item
+		// 	),
+		// });
+		// console.log(cart.items);
+
+		// // SOLUTION_2
+		// setPizza({
+		// 	...pizza,
+		// 	toppings: [...pizza.toppings, 'Cheese', 'Salami'],
+		// });
+		// console.log(pizza.toppings);
+		// // SOLUTION_2
+
 		// const newName = (game.player.name = 'Bob');
 		// const newName = game.player.name;
 
@@ -39,14 +77,6 @@ const App = () => {
 		// setPizza({ ...pizza });
 		// console.log(pizza.toppings);
 		// // Solution_1
-
-		// SOLUTION_2
-		setPizza({
-			...pizza,
-			toppings: [...pizza.toppings, 'Cheese', 'Salami'],
-		});
-		console.log(pizza.toppings);
-		// SOLUTION_2
 	};
 
 	return (
