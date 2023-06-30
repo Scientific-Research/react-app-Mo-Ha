@@ -27,6 +27,11 @@ const App = () => {
 	// 	],
 	// });
 
+	const [bugs, setBugs] = useState([
+		{ id: 1, title: 'Bug 1', fixed: false },
+		{ id: 2, title: 'Bug 2', fixed: false },
+	]);
+
 	// const handleClick = () => {
 	// 	// Ex 3 Solution
 	// 	setCart({
@@ -41,50 +46,68 @@ const App = () => {
 	// 	});
 	// 	console.log(cart.items);
 
-	// Ex 3 Solution
-	// setCart({
-	// 	...cart,
-	// 	items: cart.items.map((item) =>
-	// 		item.id == 1 ? { ...item, quantity: item.quantity + 1 } : item
-	// 	),
-	// });
-	// console.log(cart.items);
+	const handleClick = () => {
+		// Solution for Updating Array of Objects => meine Lösung
+		// setBugs({
+		// 	// ...bugs,
+		// 	...[{ id: 1, title: 'Bug 1', fixed: true }],
+		// });
+		// console.log(bugs);
 
-	// // SOLUTION_2
-	// setPizza({
-	// 	...pizza,
-	// 	toppings: [...pizza.toppings, 'Cheese', 'Salami'],
-	// });
-	// console.log(pizza.toppings);
-	// // SOLUTION_2
+		// Solution for Updating Array of Objects => Mosh Hamedani Lösung
+		setBugs(
+			bugs.map((item) =>
+				item.id === 1 ? { ...item, fixed: true } : item
+			)
+		);
+		console.log(bugs);
 
-	// const newName = (game.player.name = 'Bob');
-	// const newName = game.player.name;
+		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
 
-	// setGame({game.player.name = 'Bob'});
-	// setGame([game.player.name]='Bob');
-	// setGame({ ...game, player: { name: 'Bob' } });
-	// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
+		// Ex 3 Solution
+		// setCart({
+		// 	...cart,
+		// 	items: cart.items.map((item) =>
+		// 		item.id == 1 ? { ...item, quantity: item.quantity + 1 } : item
+		// 	),
+		// });
+		// console.log(cart.items);
 
-	// console.log(game.player.name);
-	// pizza.toppings.push('Cheese');
+		// // SOLUTION_2
+		// setPizza({
+		// 	...pizza,
+		// 	toppings: [...pizza.toppings, 'Cheese', 'Salami'],
+		// });
+		// console.log(pizza.toppings);
+		// // SOLUTION_2
 
-	// // Solution_1
-	// const Topping: any = ['Cheese'];
-	// Topping.forEach((element: any) => {
-	// 	pizza.toppings.push(element);
-	// });
-	// // setPizza({ ...pizza, toppings: ['Cheese'] });
-	// setPizza({ ...pizza });
-	// console.log(pizza.toppings);
-	// // Solution_1
-	//};
+		// const newName = (game.player.name = 'Bob');
+		// const newName = game.player.name;
+
+		// setGame({game.player.name = 'Bob'});
+		// setGame([game.player.name]='Bob');
+		// setGame({ ...game, player: { name: 'Bob' } });
+		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
+
+		// console.log(game.player.name);
+		// pizza.toppings.push('Cheese');
+
+		// // Solution_1
+		// const Topping: any = ['Cheese'];
+		// Topping.forEach((element: any) => {
+		// 	pizza.toppings.push(element);
+		// });
+		// // setPizza({ ...pizza, toppings: ['Cheese'] });
+		// setPizza({ ...pizza });
+		// console.log(pizza.toppings);
+		// // Solution_1
+	};
 
 	return (
 		<div>
-			{/* <Like onclick={() => console.log('Clicked!')}></Like>
-			<button onClick={() => handleClick()}>My Button</button> */}
-			<Message />
+			{/* <Like onclick={() => console.log('Clicked!')}></Like> */}
+			<button onClick={() => handleClick()}>My Button</button>
+			{/* <Message /> */}
 		</div>
 	);
 };
