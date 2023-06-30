@@ -27,11 +27,6 @@ const App = () => {
 	// 	],
 	// });
 
-	const [bugs, setBugs] = useState([
-		{ id: 1, title: 'Bug 1', fixed: false },
-		{ id: 2, title: 'Bug 2', fixed: false },
-	]);
-
 	// const handleClick = () => {
 	// 	// Ex 3 Solution
 	// 	setCart({
@@ -45,6 +40,11 @@ const App = () => {
 	// 		],
 	// 	});
 	// 	console.log(cart.items);
+
+	const [bugs, setBugs] = useState([
+		{ id: 1, title: 'Bug 1', fixed: false },
+		{ id: 2, title: 'Bug 2', fixed: false },
+	]);
 
 	const handleClick = () => {
 		// Solution for Updating Array of Objects => meine Lösung
@@ -61,8 +61,6 @@ const App = () => {
 			)
 		);
 		console.log(bugs);
-
-		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
 
 		// Ex 3 Solution
 		// setCart({
