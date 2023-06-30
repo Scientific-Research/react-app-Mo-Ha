@@ -41,27 +41,36 @@ const App = () => {
 	// 	});
 	// 	console.log(cart.items);
 
-	const [bugs, setBugs] = useState([
-		{ id: 1, title: 'Bug 1', fixed: false },
-		{ id: 2, title: 'Bug 2', fixed: false },
-	]);
+	// const [bugs, setBugs] = useState([
+	// 	{ id: 1, title: 'Bug 1', fixed: false },
+	// 	{ id: 2, title: 'Bug 2', fixed: false },
+	// ]);
+
+	const [tags, setTags] = useState(['happy', 'cheerful']);
 
 	const handleClick = () => {
+		// Updating Arrays --> Add
+
+		// setTags({ ...tags, ...['Lovely'] });
+		// setTags(tags.push(['Lovely']));
+		// tags.push('Lovely');
+		setTags([...tags, 'exciting']);
+
+		console.log(tags);
+
 		// Solution for Updating Array of Objects => meine Lösung
 		// setBugs({
 		// 	// ...bugs,
 		// 	...[{ id: 1, title: 'Bug 1', fixed: true }],
 		// });
 		// console.log(bugs);
-
 		// Solution for Updating Array of Objects => Mosh Hamedani Lösung
-		setBugs(
-			bugs.map((item) =>
-				item.id === 1 ? { ...item, fixed: true } : item
-			)
-		);
-		console.log(bugs);
-
+		// setBugs(
+		// 	bugs.map((item) =>
+		// 		item.id === 1 ? { ...item, fixed: true } : item
+		// 	)
+		// );
+		// console.log(bugs);
 		// Ex 3 Solution
 		// setCart({
 		// 	...cart,
@@ -70,7 +79,6 @@ const App = () => {
 		// 	),
 		// });
 		// console.log(cart.items);
-
 		// // SOLUTION_2
 		// setPizza({
 		// 	...pizza,
@@ -78,18 +86,14 @@ const App = () => {
 		// });
 		// console.log(pizza.toppings);
 		// // SOLUTION_2
-
 		// const newName = (game.player.name = 'Bob');
 		// const newName = game.player.name;
-
 		// setGame({game.player.name = 'Bob'});
 		// setGame([game.player.name]='Bob');
 		// setGame({ ...game, player: { name: 'Bob' } });
 		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
-
 		// console.log(game.player.name);
 		// pizza.toppings.push('Cheese');
-
 		// // Solution_1
 		// const Topping: any = ['Cheese'];
 		// Topping.forEach((element: any) => {
