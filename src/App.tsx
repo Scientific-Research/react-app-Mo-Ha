@@ -58,7 +58,11 @@ const App = () => {
 		setTags([...tags, 'exciting']);
 
 		// Remove
-		setTags(tags.filter(item=>item !== 'happy'))
+		setTags(tags.filter((item) => item !== 'happy'));
+		//  console.log(tags);
+
+		//Update
+		setTags(tags.map((item) => (item === 'happy' ? 'happiness' : item)));
 		console.log(tags);
 
 		// Solution for Updating Array of Objects => meine Lösung
