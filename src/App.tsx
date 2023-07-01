@@ -137,10 +137,15 @@ const App = () => {
 		// // Solution_1
 	};
 
+	const handleClearItems = () => {
+		setCartItems([]);
+	};
+
 	return (
 		<div>
 			<NavBar cartItemsCount={cartItems.length}></NavBar>
-			<Cart cartItems={cartItems}></Cart>
+			<Cart cartItems={cartItems} onClear={handleClearItems}></Cart>
+
 			{/* <Like onclick={() => console.log('Clicked!')}></Like> */}
 			{/* // Simplifying update using immer */}
 			{/* {bugs.map((bug) => (
