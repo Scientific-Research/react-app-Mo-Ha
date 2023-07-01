@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Like from './components/Like';
 import Message from './Message';
+import produce from 'immer';
 
 const App = () => {
 	// const [game, setGame] = useState({
@@ -41,29 +42,44 @@ const App = () => {
 	// 	});
 	// 	console.log(cart.items);
 
-	// const [bugs, setBugs] = useState([
-	// 	{ id: 1, title: 'Bug 1', fixed: false },
-	// 	{ id: 2, title: 'Bug 2', fixed: false },
-	// ]);
+	const [bugs, setBugs] = useState([
+		{ id: 1, title: 'Bug 1', fixed: false },
+		{ id: 2, title: 'Bug 2', fixed: false },
+	]);
 
-	const [tags, setTags] = useState(['happy', 'cheerful']);
+	// const [tags, setTags] = useState(['happy', 'cheerful']);
 
 	const handleClick = () => {
+		// setBugs(
+		// 	bugs.map((item) =>
+		// 		item.id === 1 ? { ...item, fixed: true } : item
+		// 	)
+		// );
+
+		// Solution with immer:
+		setBugs(
+			produce((draft) => {
+				const bug = draft.find((bug) => bug.id === 1);
+				if (bug) bug.fixréd = true;
+			})
+		);
+		console.log(bugs);
+
 		// Updating Arrays --> Add
 
 		// setTags({ ...tags, ...['Lovely'] });
 		// setTags(tags.push(['Lovely']));
 		// tags.push('Lovely');
 		// Add
-		setTags([...tags, 'exciting']);
+		// setTags([...tags, 'exciting']);
 
 		// Remove
-		setTags(tags.filter((item) => item !== 'happy'));
+		// setTags(tags.filter((item) => item !== 'happy'));
 		//  console.log(tags);
 
 		//Update
-		setTags(tags.map((item) => (item === 'happy' ? 'happiness' : item)));
-		console.log(tags);
+		// setTags(tags.map((item) => (item === 'happy' ? 'happiness' : item)));
+		// console.log(tags);
 
 		// Solution for Updating Array of Objects => meine Lösung
 		// setBugs({
@@ -72,12 +88,6 @@ const App = () => {
 		// });
 		// console.log(bugs);
 		// Solution for Updating Array of Objects => Mosh Hamedani Lösung
-		// setBugs(
-		// 	bugs.map((item) =>
-		// 		item.id === 1 ? { ...item, fixed: true } : item
-		// 	)
-		// );
-		// console.log(bugs);
 		// Ex 3 Solution
 		// setCart({
 		// 	...cart,
