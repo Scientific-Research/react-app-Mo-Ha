@@ -68,9 +68,22 @@ const App = () => {
 	// });
 
 	const handleClick = () => {
-		drink.price = 6;
-		setDrink(drink);
-		console.log(drink);
+		// drink.price = 70;
+		// setDrink({ ...drink });
+
+		//ODER nur in one line:
+		setDrink({ ...drink, price: 60 });
+
+		//ODER => the meaning of spread operator => ... - Start
+		// const newDrink = {
+		// 	title: drink.title,
+		// 	price: 6,
+		// };
+		// setDrink(newDrink);
+		//ODER => the meaning of spread operator => ... - End
+
+		// console.log(drink);
+		// <p>{drink.price}</p>;
 		// Updating Nested Objects - Start
 		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
 		// setCustomer({
@@ -152,6 +165,7 @@ const App = () => {
 	return (
 		<div>
 			<button onClick={handleClick}>Click Me</button>
+			<p>{drink.price}</p>
 			{/* <NavBar cartItemsCount={cartItems.length}></NavBar> */}
 			{/* <Cart cartItems={cartItems} onClear={handleClearItems}></Cart> */}
 
