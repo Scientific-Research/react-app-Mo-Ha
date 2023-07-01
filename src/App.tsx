@@ -58,8 +58,8 @@ const App = () => {
 
 		// Solution with immer:
 		setBugs(
-			produce((draft: any) => {
-				const bug = draft.find((bug: any) => bug.id === 1);
+			produce((draft) => {
+				const bug = draft.find((bug) => bug.id === 1);
 				if (bug) bug.fixed = true;
 			})
 		);
