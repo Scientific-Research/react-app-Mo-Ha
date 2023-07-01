@@ -60,7 +60,7 @@ const App = () => {
 		setBugs(
 			produce((draft) => {
 				const bug = draft.find((bug) => bug.id === 1);
-				if (bug) bug.fixed = true;
+				if (bug !== undefined) bug.fixed = true;
 			})
 		);
 		console.log(bugs);
@@ -125,6 +125,12 @@ const App = () => {
 	return (
 		<div>
 			{/* <Like onclick={() => console.log('Clicked!')}></Like> */}
+			{bugs.map((bug) => (
+				<p key={bug.id}>
+					{bug.title}
+					{bug.fixed ? ' Fixed' : ' New'}
+				</p>
+			))}
 			<button onClick={() => handleClick()}>My Button</button>
 			{/* <Message /> */}
 		</div>
