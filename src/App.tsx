@@ -6,7 +6,12 @@ import NavBar from './components/NavBar';
 import Cart from './components/Cart';
 
 const App = () => {
-	const [cartItems, setCartItems] = useState(['Producrt1', 'Product2']);
+	// const [cartItems, setCartItems] = useState(['Producrt1', 'Product2']);
+
+	const [drink, setDrink] = useState({
+		title: 'Americano',
+		price: 5,
+	});
 	// Sharing State between Components
 	// const [game, setGame] = useState({
 	// 	id: 1,
@@ -63,6 +68,9 @@ const App = () => {
 	// });
 
 	const handleClick = () => {
+		drink.price = 6;
+		setDrink(drink);
+		console.log(drink);
 		// Updating Nested Objects - Start
 		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
 		// setCustomer({
@@ -137,14 +145,15 @@ const App = () => {
 		// // Solution_1
 	};
 
-	const handleClearItems = () => {
-		setCartItems([]);
-	};
+	// const handleClearItems = () => {
+	// 	setCartItems([]);
+	// };
 
 	return (
 		<div>
-			<NavBar cartItemsCount={cartItems.length}></NavBar>
-			<Cart cartItems={cartItems} onClear={handleClearItems}></Cart>
+			<button onClick={handleClick}>Click Me</button>
+			{/* <NavBar cartItemsCount={cartItems.length}></NavBar> */}
+			{/* <Cart cartItems={cartItems} onClear={handleClearItems}></Cart> */}
 
 			{/* <Like onclick={() => console.log('Clicked!')}></Like> */}
 			{/* // Simplifying update using immer */}
