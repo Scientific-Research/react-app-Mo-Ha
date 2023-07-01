@@ -2,8 +2,12 @@ import { useState } from 'react';
 import Like from './components/Like';
 import Message from './Message';
 import produce from 'immer';
+import NavBar from './components/NavBar';
+import Cart from './components/Cart';
 
 const App = () => {
+	const [cartItems, setCartItems] = useState(['Producrt1', 'Product2']);
+	// Sharing State between Components
 	// const [game, setGame] = useState({
 	// 	id: 1,
 	// 	player: {
@@ -49,25 +53,24 @@ const App = () => {
 	// 	{ id: 2, title: 'Bug 2', fixed: false },
 	// ]);
 
-	// Updating Nested Objects:
-	const [customer, setCustomer] = useState({
-		name: 'John',
-		address: {
-			city: 'San Francisco',
-			zipCode: 94111,
-		},
-	});
+	// // Updating Nested Objects:
+	// const [customer, setCustomer] = useState({
+	// 	name: 'John',
+	// 	address: {
+	// 		city: 'San Francisco',
+	// 		zipCode: 94111,
+	// 	},
+	// });
 
 	const handleClick = () => {
 		// Updating Nested Objects - Start
 		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
-		setCustomer({
-			...customer,
-			address: { ...customer.address, zipCode: 12345 },
-		});
-		console.log(customer);
-		// Updating Nested Objects - End
-
+		// setCustomer({
+		// 	...customer,
+		// 	address: { ...customer.address, zipCode: 12345 },
+		// });
+		// console.log(customer);
+		// // Updating Nested Objects - End
 		// setBugs(
 		// 	bugs.map((item) =>
 		// 		item.id === 1 ? { ...item, fixed: true } : item
@@ -136,6 +139,8 @@ const App = () => {
 
 	return (
 		<div>
+			<NavBar cartItemsCount={cartItems.length}></NavBar>
+			<Cart cartItems={cartItems}></Cart>
 			{/* <Like onclick={() => console.log('Clicked!')}></Like> */}
 			{/* // Simplifying update using immer */}
 			{/* {bugs.map((bug) => (
@@ -146,10 +151,10 @@ const App = () => {
 			))} */}
 
 			{/* // Updating Nested Objects: */}
-			<p>{customer.address.zipCode}</p>
+			{/* <p>{customer.address.zipCode}</p> */}
 			{/* // Updating Nested Objects: */}
 
-			<button onClick={() => handleClick()}>My Button</button>
+			{/* <button onClick={() => handleClick()}>My Button</button> */}
 			{/* <Message /> */}
 		</div>
 	);
