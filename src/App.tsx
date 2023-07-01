@@ -41,46 +41,58 @@ const App = () => {
 	// 		],
 	// 	});
 	// 	console.log(cart.items);
-
-	const [bugs, setBugs] = useState([
-		{ id: 1, title: 'Bug 1', fixed: false },
-		{ id: 2, title: 'Bug 2', fixed: false },
-	]);
-
 	// const [tags, setTags] = useState(['happy', 'cheerful']);
 
+	// Simplifying update using immer
+	// const [bugs, setBugs] = useState([
+	// 	{ id: 1, title: 'Bug 1', fixed: false },
+	// 	{ id: 2, title: 'Bug 2', fixed: false },
+	// ]);
+
+	// Updating Nested Objects:
+	const [customer, setCustomer] = useState({
+		name: 'John',
+		address: {
+			city: 'San Francisco',
+			zipCode: 94111,
+		},
+	});
+
 	const handleClick = () => {
+		// Updating Nested Objects - Start
+		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
+		setCustomer({
+			...customer,
+			address: { ...customer.address, zipCode: 12345 },
+		});
+		console.log(customer);
+		// Updating Nested Objects - End
+
 		// setBugs(
 		// 	bugs.map((item) =>
 		// 		item.id === 1 ? { ...item, fixed: true } : item
 		// 	)
 		// );
-
-		// Solution with immer:
-		setBugs(
-			produce((draft) => {
-				const bug = draft.find((bug) => bug.id === 1);
-				if (bug !== undefined) bug.fixed = true;
-			})
-		);
-		console.log(bugs);
-
+		// Solution with immer: // Simplifying update using immer
+		// setBugs(
+		// 	produce((draft) => {
+		// 		const bug = draft.find((bug) => bug.id === 1);
+		// 		if (bug !== undefined) bug.fixed = true;
+		// 	})
+		// );
+		// console.log(bugs);
 		// Updating Arrays --> Add
-
 		// setTags({ ...tags, ...['Lovely'] });
 		// setTags(tags.push(['Lovely']));
 		// tags.push('Lovely');
 		// Add
 		// setTags([...tags, 'exciting']);
-
 		// Remove
 		// setTags(tags.filter((item) => item !== 'happy'));
 		//  console.log(tags);
-
 		//Update
 		// setTags(tags.map((item) => (item === 'happy' ? 'happiness' : item)));
 		// console.log(tags);
-
 		// Solution for Updating Array of Objects => meine Lösung
 		// setBugs({
 		// 	// ...bugs,
@@ -125,12 +137,18 @@ const App = () => {
 	return (
 		<div>
 			{/* <Like onclick={() => console.log('Clicked!')}></Like> */}
-			{bugs.map((bug) => (
+			{/* // Simplifying update using immer */}
+			{/* {bugs.map((bug) => (
 				<p key={bug.id}>
-					{bug.title}
-					{bug.fixed ? ' Fixed' : ' New'}
+				{bug.title}
+				{bug.fixed ? ' Fixed' : ' New'}
 				</p>
-			))}
+			))} */}
+
+			{/* // Updating Nested Objects: */}
+			<p>{customer.address.zipCode}</p>
+			{/* // Updating Nested Objects: */}
+
 			<button onClick={() => handleClick()}>My Button</button>
 			{/* <Message /> */}
 		</div>
