@@ -27,7 +27,10 @@ const ExpandableText = ({ children, maxChars }: IProps) => {
 				{moreButton && children}
 				{children.substring(0, maxChars)}
 				...
-				<button onClick={() => handleShortWords()}>More</button>
+				<button onClick={() => handleShortWords()}>
+					{moreButton && <span>Less</span>}
+					{!moreButton && <span>More</span>}
+				</button>
 				{/* <button onClick={() => children.substring(0,10)}>More</button> */}
 				{/* <button>More</button> */}
 				{/* <div>{children.length}</div> */}
