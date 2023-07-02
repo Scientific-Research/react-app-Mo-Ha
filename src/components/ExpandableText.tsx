@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface IProps {
 	children: string;
 	maxChars: number;
-	onShort: () => void;
+	// onShort: () => void;
 }
 
 // const ExpandableText = ({ maxChars, onShort }: IProps) => {
-const ExpandableText = ({ children, maxChars, onShort }: IProps) => {
+const ExpandableText = ({ children, maxChars }: IProps) => {
+	const [moreButton, setmoreButton] = useState(false);
+	const handleShortWords = () => {
+		//when OFF/False => display 100 Words
+		console.log('Clicked!');
+		setmoreButton(!moreButton);
+		console.log(moreButton);
+
+		// setmaxChars1({ maxChars1: 1000 });
+
+		//when ON/True => display what the user entered already!
+		//const [wordNumber, setWordNumber] = useState('false');
+	};
+
 	return (
 		<>
 			<div>
-				{/* <button onClick={() => onShort()}>More</button> */}
-				<p>
-					{children.substring(0, maxChars)}...
-					<button>More</button>
-				</p>
+				{moreButton && children}
+				{children.substring(0, maxChars)}
+				...
+				<button onClick={() => handleShortWords()}>More</button>
+				{/* <button onClick={() => children.substring(0,10)}>More</button> */}
+				{/* <button>More</button> */}
 				{/* <div>{children.length}</div> */}
 			</div>
 		</>

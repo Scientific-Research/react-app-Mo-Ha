@@ -8,7 +8,7 @@ import ExpandableText from './components/ExpandableText';
 
 const App = () => {
 	// const [cartItems, setCartItems] = useState(['Producrt1', 'Product2']);
-	const [wordNumber, setWordNumber] = useState('false');
+	// const [maxChars, setmaxChars] = useState(Number);
 	//when OFF => display 100 Words
 	//when ON => display what the user entered already!
 	//const [wordNumber, setWordNumber] = useState('false');
@@ -169,16 +169,19 @@ const App = () => {
 	// 	setCartItems([]);
 	// };
 
-	const handleShortWords = () => {
-		//when OFF/False => display 100 Words
-		//when ON/True => display what the user entered already!
-		//const [wordNumber, setWordNumber] = useState('false');
-	};
+	// const handleShortWords = () => {
+	// 	//when OFF/False => display 100 Words
+	// 	console.log('Clicked!');
+	// 	setmaxChars({ ...maxChars, maxChars: 1000 });
+
+	// 	//when ON/True => display what the user entered already!
+	// 	//const [wordNumber, setWordNumber] = useState('false');
+	// };
 
 	return (
 		<div>
 			{/* <ExpandableText maxChars={0} onShort={handleShortWords}> */}
-			<ExpandableText maxChars={100} onShort={handleShortWords}>
+			<ExpandableText maxChars={100} >
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
 				expedita laboriosam dolor nisi distinctio, totam sed hic ut
 				autem assumenda at dicta numquam deleniti recusandae quaerat
