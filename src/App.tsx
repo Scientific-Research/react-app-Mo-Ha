@@ -178,7 +178,7 @@ const App = () => {
 	return (
 		<div>
 			{/* <ExpandableText maxChars={0} onShort={handleShortWords}> */}
-			<ExpandableText maxChars={0} onShort={handleShortWords}>
+			<ExpandableText maxChars={100} onShort={handleShortWords}>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
 				expedita laboriosam dolor nisi distinctio, totam sed hic ut
 				autem assumenda at dicta numquam deleniti recusandae quaerat
