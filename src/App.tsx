@@ -4,14 +4,20 @@ import Message from './Message';
 import produce from 'immer';
 import NavBar from './components/NavBar';
 import Cart from './components/Cart';
+import ExpandableText from './components/ExpandableText';
 
 const App = () => {
 	// const [cartItems, setCartItems] = useState(['Producrt1', 'Product2']);
+	const [wordNumber, setWordNumber] = useState('false');
+	//when OFF => display 100 Words
+	//when ON => display what the user entered already!
+	//const [wordNumber, setWordNumber] = useState('false');
 
-	const [drink, setDrink] = useState({
-		title: 'Americano',
-		price: 5,
-	});
+	// const [drink, setDrink] = useState({
+	// 	title: 'Americano',
+	// 	price: 5,
+	// });
+
 	// Sharing State between Components
 	// const [game, setGame] = useState({
 	// 	id: 1,
@@ -67,105 +73,129 @@ const App = () => {
 	// 	},
 	// });
 
-	const handleClick = () => {
-		// drink.price = 70;
-		// setDrink({ ...drink });
-
-		//ODER nur in one line:
-		setDrink({ ...drink, price: 60 });
-
-		//ODER => the meaning of spread operator => ... - Start
-		// const newDrink = {
-		// 	title: drink.title,
-		// 	price: 6,
-		// };
-		// setDrink(newDrink);
-		//ODER => the meaning of spread operator => ... - End
-
-		// console.log(drink);
-		// <p>{drink.price}</p>;
-		// Updating Nested Objects - Start
-		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
-		// setCustomer({
-		// 	...customer,
-		// 	address: { ...customer.address, zipCode: 12345 },
-		// });
-		// console.log(customer);
-		// // Updating Nested Objects - End
-		// setBugs(
-		// 	bugs.map((item) =>
-		// 		item.id === 1 ? { ...item, fixed: true } : item
-		// 	)
-		// );
-		// Solution with immer: // Simplifying update using immer
-		// setBugs(
-		// 	produce((draft) => {
-		// 		const bug = draft.find((bug) => bug.id === 1);
-		// 		if (bug !== undefined) bug.fixed = true;
-		// 	})
-		// );
-		// console.log(bugs);
-		// Updating Arrays --> Add
-		// setTags({ ...tags, ...['Lovely'] });
-		// setTags(tags.push(['Lovely']));
-		// tags.push('Lovely');
-		// Add
-		// setTags([...tags, 'exciting']);
-		// Remove
-		// setTags(tags.filter((item) => item !== 'happy'));
-		//  console.log(tags);
-		//Update
-		// setTags(tags.map((item) => (item === 'happy' ? 'happiness' : item)));
-		// console.log(tags);
-		// Solution for Updating Array of Objects => meine Lösung
-		// setBugs({
-		// 	// ...bugs,
-		// 	...[{ id: 1, title: 'Bug 1', fixed: true }],
-		// });
-		// console.log(bugs);
-		// Solution for Updating Array of Objects => Mosh Hamedani Lösung
-		// Ex 3 Solution
-		// setCart({
-		// 	...cart,
-		// 	items: cart.items.map((item) =>
-		// 		item.id == 1 ? { ...item, quantity: item.quantity + 1 } : item
-		// 	),
-		// });
-		// console.log(cart.items);
-		// // SOLUTION_2
-		// setPizza({
-		// 	...pizza,
-		// 	toppings: [...pizza.toppings, 'Cheese', 'Salami'],
-		// });
-		// console.log(pizza.toppings);
-		// // SOLUTION_2
-		// const newName = (game.player.name = 'Bob');
-		// const newName = game.player.name;
-		// setGame({game.player.name = 'Bob'});
-		// setGame([game.player.name]='Bob');
-		// setGame({ ...game, player: { name: 'Bob' } });
-		// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
-		// console.log(game.player.name);
-		// pizza.toppings.push('Cheese');
-		// // Solution_1
-		// const Topping: any = ['Cheese'];
-		// Topping.forEach((element: any) => {
-		// 	pizza.toppings.push(element);
-		// });
-		// // setPizza({ ...pizza, toppings: ['Cheese'] });
-		// setPizza({ ...pizza });
-		// console.log(pizza.toppings);
-		// // Solution_1
-	};
+	//-------------------------------------
+	// Solution with two lines
+	// drink.price = 70;
+	// setDrink({ ...drink });
+	//-------------------------------------
+	//ODER nur in one line:
+	// setDrink({ ...drink, price: 60 });
+	//-------------------------------------
+	//ODER => the meaning of spread operator => ... - Start
+	// const newDrink = {
+	// 	title: drink.title,
+	// 	price: 6,
+	// };
+	// setDrink(newDrink);
+	//ODER => the meaning of spread operator => ... - End
+	//-------------------------------------
+	// console.log(drink);
+	// <p>{drink.price}</p>;
+	// Updating Nested Objects - Start
+	// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
+	// setCustomer({
+	// 	...customer,
+	// 	address: { ...customer.address, zipCode: 12345 },
+	// });
+	// console.log(customer);
+	// // Updating Nested Objects - End
+	// setBugs(
+	// 	bugs.map((item) =>
+	// 		item.id === 1 ? { ...item, fixed: true } : item
+	// 	)
+	// );
+	// Solution with immer: // Simplifying update using immer
+	// setBugs(
+	// 	produce((draft) => {
+	// 		const bug = draft.find((bug) => bug.id === 1);
+	// 		if (bug !== undefined) bug.fixed = true;
+	// 	})
+	// );
+	// console.log(bugs);
+	// Updating Arrays --> Add
+	// setTags({ ...tags, ...['Lovely'] });
+	// setTags(tags.push(['Lovely']));
+	// tags.push('Lovely');
+	// Add
+	// setTags([...tags, 'exciting']);
+	// Remove
+	// setTags(tags.filter((item) => item !== 'happy'));
+	//  console.log(tags);
+	//Update
+	// setTags(tags.map((item) => (item === 'happy' ? 'happiness' : item)));
+	// console.log(tags);
+	// Solution for Updating Array of Objects => meine Lösung
+	// setBugs({
+	// 	// ...bugs,
+	// 	...[{ id: 1, title: 'Bug 1', fixed: true }],
+	// });
+	// console.log(bugs);
+	// Solution for Updating Array of Objects => Mosh Hamedani Lösung
+	// Ex 3 Solution
+	// setCart({
+	// 	...cart,
+	// 	items: cart.items.map((item) =>
+	// 		item.id == 1 ? { ...item, quantity: item.quantity + 1 } : item
+	// 	),
+	// });
+	// console.log(cart.items);
+	// // SOLUTION_2
+	// setPizza({
+	// 	...pizza,
+	// 	toppings: [...pizza.toppings, 'Cheese', 'Salami'],
+	// });
+	// console.log(pizza.toppings);
+	// // SOLUTION_2
+	// const newName = (game.player.name = 'Bob');
+	// const newName = game.player.name;
+	// setGame({game.player.name = 'Bob'});
+	// setGame([game.player.name]='Bob');
+	// setGame({ ...game, player: { name: 'Bob' } });
+	// setGame({ ...game, player: { ...game.player, name: 'Bob' } });
+	// console.log(game.player.name);
+	// pizza.toppings.push('Cheese');
+	// // Solution_1
+	// const Topping: any = ['Cheese'];
+	// Topping.forEach((element: any) => {
+	// 	pizza.toppings.push(element);
+	// });
+	// // setPizza({ ...pizza, toppings: ['Cheese'] });
+	// setPizza({ ...pizza });
+	// console.log(pizza.toppings);
+	// // Solution_1
+	const handleClick = () => {};
 
 	// const handleClearItems = () => {
 	// 	setCartItems([]);
 	// };
 
+	const handleShortWords = () => {
+		//when OFF/False => display 100 Words
+		//when ON/True => display what the user entered already!
+		//const [wordNumber, setWordNumber] = useState('false');
+	};
+
 	return (
 		<div>
-			<button onClick={handleClick}>Click Me</button>
-			<p>{drink.price}</p>
+			{/* <ExpandableText maxChars={0} onShort={handleShortWords}> */}
+			<ExpandableText maxChars={0} onShort={handleShortWords}>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+				expedita laboriosam dolor nisi distinctio, totam sed hic ut
+				autem assumenda at dicta numquam deleniti recusandae quaerat
+				accusantium similique nesciunt pariatur, et harum ad quibusdam,
+				odit obcaecati. Unde commodi fuga distinctio ullam natus nisi
+				deserunt aliquam! Aperiam fugiat, exercitationem possimus itaque
+				similique cupiditate autem non eligendi perferendis laboriosam
+				ea nulla blanditiis labore consequatur excepturi rerum iure
+				ipsam id a atque enim! Quidem ratione distinctio, nam deleniti
+				illo sit, recusandae quas animi, eaque asperiores quo
+				perferendis unde. Doloribus veniam, minima cum quaerat harum
+				assumenda laborum, hic error incidunt architecto, expedita
+				provident itaque?
+			</ExpandableText>
+
+			{/* <button onClear={handleShortWords}>More</button> */}
+			{/* <p>{drink.price}</p> */}
 			{/* <NavBar cartItemsCount={cartItems.length}></NavBar> */}
 			{/* <Cart cartItems={cartItems} onClear={handleClearItems}></Cart> */}
 
