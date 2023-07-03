@@ -8,12 +8,15 @@ interface IProps {
 
 // const ExpandableText = ({ maxChars, onShort }: IProps) => {
 const ExpandableText = ({ children, maxChars }: IProps) => {
-	const [moreButton, setmoreButton] = useState(false);
+	const [ExpandableButton, setExpandableButton] = useState(false);
+	if (children.length <= maxChars) {
+		return <p>{children}</p>;
+	}
 	const handleShortWords = () => {
 		//when OFF/False => display 100 Words
 		console.log('Clicked!');
-		setmoreButton(!moreButton);
-		console.log(moreButton);
+		setExpandableButton(!ExpandableButton);
+		console.log(ExpandableButton);
 
 		// setmaxChars1({ maxChars1: 1000 });
 
@@ -23,18 +26,21 @@ const ExpandableText = ({ children, maxChars }: IProps) => {
 
 	return (
 		<>
-			<div>
-				{moreButton && children}
-				{!moreButton && children.substring(0, maxChars)}
+			<p>
+				{/* {ExpandableButton && children}
+				{!ExpandableButton && children.substring(0, maxChars)} */}
+				{ExpandableButton ? children : children.substring(0, maxChars)}
 				...
 				<button onClick={() => handleShortWords()}>
-					{moreButton && <span>Less</span>}
-					{!moreButton && <span>More</span>}
+					{/* {ExpandableButton && <span>Less</span>}
+					{!ExpandableButton && <span>More</span>} */}
+					{/* {ExpandableButton ? <span>Less</span> : <span>More</span>} */}
+					{ExpandableButton ? 'Less' : 'More'}
 				</button>
 				{/* <button onClick={() => children.substring(0,10)}>More</button> */}
 				{/* <button>More</button> */}
 				{/* <div>{children.length}</div> */}
-			</div>
+			</p>
 		</>
 	);
 };

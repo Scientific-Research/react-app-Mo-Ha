@@ -181,21 +181,7 @@ const App = () => {
 	return (
 		<div>
 			{/* <ExpandableText maxChars={0} onShort={handleShortWords}> */}
-			<ExpandableText maxChars={100} >
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-				expedita laboriosam dolor nisi distinctio, totam sed hic ut
-				autem assumenda at dicta numquam deleniti recusandae quaerat
-				accusantium similique nesciunt pariatur, et harum ad quibusdam,
-				odit obcaecati. Unde commodi fuga distinctio ullam natus nisi
-				deserunt aliquam! Aperiam fugiat, exercitationem possimus itaque
-				similique cupiditate autem non eligendi perferendis laboriosam
-				ea nulla blanditiis labore consequatur excepturi rerum iure
-				ipsam id a atque enim! Quidem ratione distinctio, nam deleniti
-				illo sit, recusandae quas animi, eaque asperiores quo
-				perferendis unde. Doloribus veniam, minima cum quaerat harum
-				assumenda laborum, hic error incidunt architecto, expedita
-				provident itaque?
-			</ExpandableText>
+			<ExpandableText maxChars={5}>Hallo Baby</ExpandableText>
 
 			{/* <button onClear={handleShortWords}>More</button> */}
 			{/* <p>{drink.price}</p> */}
